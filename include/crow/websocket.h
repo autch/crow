@@ -75,7 +75,7 @@ namespace crow
                 template<typename CompletionHandler>
                 void dispatch(CompletionHandler handler)
                 {
-                    adaptor_.get_io_service().dispatch(handler);
+					boost::asio::dispatch(adaptor_.get_executor(), handler);
                 }
 
                 template<typename CompletionHandler>

@@ -17,10 +17,15 @@ namespace crow
         {
         }
 
-        boost::asio::io_service& get_io_service()
+        boost::asio::execution_context& get_io_service()
         {
-            return socket_.get_io_service();
+            return socket_.get_executor().context();
         }
+
+		boost::asio::executor get_executor()
+		{
+			return socket_.get_executor();
+		}
 
         tcp::socket& raw_socket()
         {

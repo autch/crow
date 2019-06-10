@@ -31,7 +31,7 @@ namespace crow
         std::string body;
 
         void* middleware_context{};
-        boost::asio::io_service* io_service{};
+        boost::asio::executor* io_service{};
 
         request()
             : method(HTTPMethod::Get)
